@@ -24,15 +24,16 @@ namespace BigSchool.Controllers
         {
             var userId = User.Identity.GetUserId();
             if (_dbContext.Followings.Any(f => f.FollowerId == userId && f.FolloweeId == followingDto.FolloweeId))
-                return BadRequest("Following alreedy exists!");
+                return BadRequest("Following already exists!");
 
             var folowing = new Following
             {
-                FollowerId =userId,
+                FollowerId = userId,
                 FolloweeId = followingDto.FolloweeId
             };
             _dbContext.Followings.Add(folowing);
             _dbContext.SaveChanges();
+
             return Ok();
         }
     }

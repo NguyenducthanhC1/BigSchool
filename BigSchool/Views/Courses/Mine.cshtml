@@ -6,8 +6,8 @@
 
 <h2>Mine</h2>
 <ul class="course">
-    @foreach(var course in Model)
-    { 
+    @foreach (var course in Model)
+    {
         <li>
             <div class="date">
                 <div class="month">
@@ -26,7 +26,7 @@
                 </span>
             </div>
             <div class="action">
-                <a href="/Courses/Edit">Edit</a>
+                <a href="@Url.Action("Edit","Courses",new { id = course.Id })">Edit</a>
                 <a href="#" class="js-cancel-course">Cancel</a>
             </div>
         </li>
@@ -35,11 +35,11 @@
 @section scripts
 {
     <script>
-        $(document).ready(function)(){
+        $(document).ready(function () {
             $(".js-cancel-course").click(function (e) {
                 e.preventDefault();
                 var link = $(e.target);
-                bootbox.confirm("are you sure to cancel?"),
+                bootbox.confrim("Are you sure to cancel?",
                     function () {
                         $.ajax({
                             url: "/api/courses" + link.attr("data-course-id"),
@@ -51,11 +51,11 @@
                                 });
                             })
                             .fail(function () {
-                                alert("Somthing failed!");
+                                alert("Something failed!");
                             });
-
                     });
             });
         });
     </script>
 }
+

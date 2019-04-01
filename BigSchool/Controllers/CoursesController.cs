@@ -56,7 +56,7 @@ namespace BigSchool.Controllers
         public ActionResult Attending()
         {
             var userId = User.Identity.GetUserId();
-            var courses = _dbContext.Attendaces
+            var courses = _dbContext.Attendances
                 .Where(a => a.AttendeeId == userId)
                 .Select(a => a.Course)
                 .Include(l => l.Lecturer)
