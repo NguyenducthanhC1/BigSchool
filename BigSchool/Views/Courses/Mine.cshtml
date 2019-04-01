@@ -27,8 +27,35 @@
             </div>
             <div class="action">
                 <a href="/Courses/Edit">Edit</a>
-                <a href="">Delete</a>
+                <a href="#" class="js-cancel-course">Cancel</a>
             </div>
         </li>
     }
 </ul>
+@section scripts
+{
+    <script>
+        $(document).ready(function)(){
+            $(".js-cancel-course").click(function (e) {
+                e.preventDefault();
+                var link = $(e.target);
+                bootbox.confirm("are you sure to cancel?"),
+                    function () {
+                        $.ajax({
+                            url: "/api/courses" + link.attr("data-course-id"),
+                            method: "DELETE"
+                        })
+                            .done(function () {
+                                link.parents("li").fadeOut(function () {
+                                    $(this).remove();
+                                });
+                            })
+                            .fail(function () {
+                                alert("Somthing failed!");
+                            });
+
+                    });
+            });
+        });
+    </script>
+}
