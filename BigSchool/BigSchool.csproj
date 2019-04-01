@@ -218,6 +218,10 @@
     <Compile Include="Migrations\201904010852230_AddFollowingsTable.Designer.cs">
       <DependentUpon>201904010852230_AddFollowingsTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904011029176_AddIsCanceledColumnToCourse.cs" />
+    <Compile Include="Migrations\201904011029176_AddIsCanceledColumnToCourse.Designer.cs">
+      <DependentUpon>201904011029176_AddIsCanceledColumnToCourse.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -291,6 +295,8 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Courses\Create.cshtml" />
+    <Content Include="Views\Courses\Attending.cshtml" />
+    <Content Include="Views\Courses\Mine.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -326,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904010852230_AddFollowingsTable.resx">
       <DependentUpon>201904010852230_AddFollowingsTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904011029176_AddIsCanceledColumnToCourse.resx">
+      <DependentUpon>201904011029176_AddIsCanceledColumnToCourse.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
